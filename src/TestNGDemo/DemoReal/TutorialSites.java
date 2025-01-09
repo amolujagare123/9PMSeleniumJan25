@@ -5,16 +5,8 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class TutorialSites {
+public class TutorialSites  extends Base {
 
-    private WebDriver driver;
-
-    @BeforeClass
-    public void setup() {
-
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-    }
 
     @Test
     public void w3schools() {
@@ -40,10 +32,5 @@ public class TutorialSites {
         System.out.println("Navigated to Coursera");
     }
 
-    @AfterClass
-    public void teardown() {
-        if (driver != null) {
-            driver.quit();
-        }
-    }
+
 }

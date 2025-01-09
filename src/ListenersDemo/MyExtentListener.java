@@ -6,7 +6,10 @@ import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
-import static ExtentReports.util.ForExtentReport.initExtent;
+import java.io.IOException;
+
+import static ExtentReports.util.ForExtentReport.*;
+import static TestNGDemo.DemoReal.Base.getDriver;
 
 public class MyExtentListener implements ITestListener
 {
@@ -25,6 +28,11 @@ public class MyExtentListener implements ITestListener
     public void onTestFailure(ITestResult result) {
         System.out.println("onTestFailure");
         test.fail(result.getThrowable());
+        try {
+            test.addScreenCaptureFromPath("./screenshots/"+getExtentScreenshot(getDriver()));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public void onTestSkipped(ITestResult result) {

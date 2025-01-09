@@ -1,4 +1,7 @@
 <suite name="Project Name">
+    <listeners>
+        <listener class-name="ListenersDemo.MyListener"/>
+    </listeners>
 
     <test name="module 1">
 

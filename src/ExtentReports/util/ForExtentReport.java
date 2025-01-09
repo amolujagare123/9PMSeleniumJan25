@@ -30,6 +30,22 @@ public class ForExtentReport {
 
         return fileName;
     }
+    public static String getExtentScreenshot(WebDriver driver) throws IOException {
+        // 1. create the object reference of TakesScreenshot
+        // assign current driver to it. type cast it to TakesScreenshot
+        TakesScreenshot ts = (TakesScreenshot) driver;
+
+        // 2. call the method getScreenshotAs using ts
+        File scrFile = ts.getScreenshotAs(OutputType.FILE);
+
+        String timeStamp = new SimpleDateFormat("_yyyyddMM_hhmmss").format(new Date());
+        String fileName = "IMG"+timeStamp+".png";
+
+        // 3. copy this file object into a real image file
+        FileUtils.copyFile(scrFile, new File("Report2\\screenshots\\"+fileName));
+
+        return fileName;
+    }
 
     public static String getTheScreenshot2(WebDriver driver, WebElement element) throws IOException {
         // 1. create the object reference of TakesScreenshot

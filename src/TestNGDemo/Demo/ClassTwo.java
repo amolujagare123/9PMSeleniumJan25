@@ -1,11 +1,12 @@
 package TestNGDemo.Demo;
 
+import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 public class ClassTwo {
-    @BeforeTest
+   /* @BeforeTest
     public void beforeMyTest()
     {
         System.out.println("beforeMyTest");
@@ -15,11 +16,12 @@ public class ClassTwo {
     public void afterMyTest()
     {
         System.out.println("afterMyTest");
-    }
+    }*/
     @Test
     public void claasTwoTest1()
     {
         System.out.println("claasTwoTest1");
+        Assert.assertEquals(true,false,"This test is failed");
     }
     @Test
     public void claasTwoTest2()

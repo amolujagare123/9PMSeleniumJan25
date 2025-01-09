@@ -3,7 +3,7 @@ package TestNGDemo.Demo;
 import org.testng.annotations.*;
 
 public class ClassThree {
-    @BeforeSuite
+  /*  @BeforeSuite
     public void beforeMyTestSuite()
     {
         System.out.println("======= beforeMyTestSuite =======");
@@ -13,7 +13,7 @@ public class ClassThree {
     public void afterMyTestSuite()
     {
         System.out.println("======= afterMyTestSuite =======");
-    }
+    }*/
     @Test
     public void claasThreeTest1()
     {

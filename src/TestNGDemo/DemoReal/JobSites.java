@@ -6,16 +6,9 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class JobSites {
+public class JobSites extends Base {
 
-    private WebDriver driver;
 
-    @BeforeClass
-    public void setup() {
-
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-    }
 
     @Test
     public void indeed() {
@@ -44,10 +37,5 @@ public class JobSites {
         System.out.println("Navigated to LinkedIn Jobs");
     }
 
-    @AfterClass
-    public void teardown() {
-        if (driver != null) {
-            driver.quit();
-        }
-    }
+
 }
