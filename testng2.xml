@@ -1,0 +1,33 @@
+<suite name="Project Name">
+
+    <!--<groups>
+        <run>
+            <exclude name = "email"/>
+        </run>
+    </groups>
+-->
+    <test name="module 1">
+
+        <classes>
+
+            <class name="TestNGDemo.Demo2.ClassOne">
+              <methods>
+                 <!-- <exclude name = "claasOneTest2"/>
+                  <exclude name = "claasOneTest1"/>-->
+                 <!-- <include name = "claasOneTest2"/>-->
+              </methods>
+            </class>
+
+
+
+            <class name="TestNGDemo.Demo2.ClassTwo"/>
+        </classes>
+
+    </test>
+
+    <test name="module 2">
+        <classes>
+            <class name="TestNGDemo.Demo2.ClassThree"/>
+        </classes>
+    </test>
+</suite>
