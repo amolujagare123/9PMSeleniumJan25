@@ -9,7 +9,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -17,7 +16,9 @@ import org.testng.annotations.Test;
 import java.io.FileInputStream;
 import java.io.IOException;
 
-public class AddCustomer {
+import static DataProvider.util.ForDataProvider.getMyData;
+
+public class AddCustomer2 {
 
     WebDriver driver;
     @BeforeClass
@@ -58,47 +59,11 @@ public class AddCustomer {
     @DataProvider
     Object[][] getData() throws IOException {
 
-        // 1. read the file
-        FileInputStream fis = new FileInputStream("Data/myData2.xlsx");
 
-        // 2. Convert file object into workbook
-        XSSFWorkbook workbook = new XSSFWorkbook(fis);
+       /* Object[][] data = getMyData("Data/myData2.xlsx", "Sheet2");
+        return data;*/
 
-        // 3. identify / choose the sheet from excel
-        XSSFSheet sheet = workbook.getSheet("Sheet2");
+        return getMyData("Data/myData2.xlsx", "Sheet2");
 
-        // 4. count the active rows
-        int rowCount = sheet.getPhysicalNumberOfRows();
-        int colCount = sheet.getRow(0).getLastCellNum();
-
-        //5. define an array
-        Object[][] data = new Object[rowCount-1][colCount];
-
-        for(int i=0;i<rowCount-1;i++)
-        {
-            XSSFRow row = sheet.getRow(i+1);
-
-            /*data[i][0] = row.getCell(0).toString();
-            data[i][1] = row.getCell(1).toString();
-            data[i][2] = row.getCell(2).toString();
-            data[i][3] = row.getCell(3).toString();*/
-
-            for (int j=0;j<colCount;j++) {
-
-                XSSFCell cell = row.getCell(j);
-
-                if(cell==null)
-                    data[i][j] ="";
-                else {
-                    cell.setCellType(CellType.STRING);
-                    data[i][j] = cell.toString();
-                }
-            }
-
-        }
-
-
-
-        return data;
     }
 }
